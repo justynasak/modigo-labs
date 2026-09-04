@@ -1,18 +1,9 @@
-def group_by_grade(students):
-    # TODO: determine each student's letter grade and group their names by grade band
-    grades = {}
-    for student in students:
-        score = student["score"]
+def get_student_grade(students, name):
+    lookup = {}
+    # TODO: loop through `students` and populate `lookup` with name -> grade
 
-        if score >= 90:
-            band = "A"
-        elif score >= 80:
-            band = "B"
-        elif score >= 70:
-            band = "C"
-        elif score >= 60:
-            band = "D"
-        else:
-            band = "F"
-        grades.setdefault(band,[]).append(student["name"])
-    return grades
+    # TODO: return the grade for `name` from `lookup`, or "Not found" if missing
+    for student in students:
+        lookup[student["name"]] = student["grade"]
+
+    return lookup.get(name,"Not found")
