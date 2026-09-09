@@ -1,6 +1,4 @@
-def top_scorers(results):
-    # TODO: find the highest score, collect all players who acheived it,
-    # and return their names as a sorted tuple
-   highest = max(score for _,score in results)
-   winners = sorted(name for name, score in results if score == highest)
-   return tuple(winners)
+def unmatched_skus(warehouse_a, warehouse_b):
+    # TODO: compute the symmetric difference using union/intersection/difference,
+    # without using ^ or .symmetric_difference()
+    return set(warehouse_a) - set(warehouse_b) | set(warehouse_b) - set(warehouse_a)
