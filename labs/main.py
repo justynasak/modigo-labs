@@ -1,9 +1,12 @@
-# No starter code provided — write the full function yourself.
-# Function name: create_book_record
-# Parameters: title, author, year
-# Must return: (title, author, year) as a tuple
-def create_book_record(title,author,year):
-    title = str(title)
-    author = str(author)
-    year = int(year)
-    return(title,author,year)
+def dedupe_preserve_order(items):
+    # TODO: use a set to track seen values while building a new list
+    # that preserves the original order of first appearances
+    if not items:
+        return []
+    dedupe = set()
+    result = []
+    for item in items:
+        if item not in dedupe:
+            dedupe.add(item)
+            result.append(item)
+    return result
