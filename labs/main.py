@@ -1,6 +1,7 @@
-def count_unique_visitors(visitors):
-    # TODO: convert `visitors` to a set to remove duplicates, then return its length
-    if not visitors:
+def count_unique_coordinates(coordinates):
+    if not coordinates:
         return 0
-    number = len(set(visitors))
-    return number
+    unique = set()
+    for coord in coordinates:
+        unique.add(coord)
+    return len(unique)
