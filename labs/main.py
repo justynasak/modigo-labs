@@ -1,9 +1,6 @@
-def get_student_grade(students, name):
-    lookup = {}
-    # TODO: loop through `students` and populate `lookup` with name -> grade
-
-    # TODO: return the grade for `name` from `lookup`, or "Not found" if missing
-    for student in students:
-        lookup[student["name"]] = student["grade"]
-
-    return lookup.get(name,"Not found")
+def count_unique_visitors(visitors):
+    # TODO: convert `visitors` to a set to remove duplicates, then return its length
+    if not visitors:
+        return 0
+    number = len(set(visitors))
+    return number
