@@ -1,7 +1,6 @@
-def has_all_vowels(word):
-    required = {"a", "e", "i", "o", "u"}
-    word = word.lower()
-    # TODO: build a set of vowels actually found in `word`,
-    # then check if it contains all of `required`
-    found = set(word) & required
-    return found == required
+def top_scorers(results):
+    # TODO: find the highest score, collect all players who acheived it,
+    # and return their names as a sorted tuple
+   highest = max(score for _,score in results)
+   winners = sorted(name for name, score in results if score == highest)
+   return tuple(winners)
