@@ -1,21 +1,18 @@
-def resolve_settings(base_config=None, override=None, built_in_defaults=None):
-    # TODO: handle the mutable default argument problem for all three dict parameters.
-    # Then resolve each of the four known settings by checking override first,
-    # then base_config, then built_in_defaults — using "key exists" checks,
-    # NOT truthiness checks, since 0/False/"" are valid explicit values.
-    if base_config is None:
-        base_config = {}
-    if override is None:
-        override = {}
-    if built_in_defaults is None:
-        built_in_defaults = {"timeout":30,"retries":3,"verbose":False,"cache":True}
-    resolved = {}
-    for key in ("timeout","retries","verbose","cache"):
-        if key in override:
-            resolved[key] = override[key]
-        elif key in base_config:
-            resolved[key] = base_config[key]
-        else:
-            resolved[key] = built_in_defaults[key]
-    
-    return resolved
+def run_with_retries(results, max_attempts=3, on_failure="skip", log=None):
+    # TODO: handle the mutable default argument problem correctly —
+    # do not use a mutable object like [] directly as a default value.
+    # Then simulate retrying through `results` according to the rules described.
+    if log is None:
+        log = []
+    attempts = 0
+    for key in results:
+        if attempts >= max_attempts:
+            break
+        attempts +=1
+
+        if key == "success":
+            log.append("success")
+            break
+        elif key == "fail" and on_failure == "log":
+            log.append("attempt failed")
+    return log
