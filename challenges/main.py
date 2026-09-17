@@ -1,6 +1,14 @@
-def count_items(items):
-    # TODO: use a for loop to build a dictionary counting each item in `items`
-    dick = {}
-    for item in items:
-        dick[item] = dick.get(item,0) + 1
-    return dick
+def has_conflict(meetings):
+    # TODO: return True if any two meetings overlap in time, False otherwise
+    if not meetings or len(meetings) < 2:
+        return False
+    
+    sorted_meetings = sorted(meetings,key = lambda x : x[0])
+    for i in range(len(sorted_meetings)-1):
+        current_end = sorted_meetings[i][1]
+        next_start = sorted_meetings[i + 1][0]
+        if next_start < current_end:
+            return True
+        else:
+            return False
+    return False
