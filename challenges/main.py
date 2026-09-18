@@ -1,9 +1,8 @@
-def build_countdown(start):
-    countdown = []
-    # TODO: use a for loop with range() to count down from `start` to 1,
-    # appending each number to `countdown`
-    if not start:
+def multiplication_table(number, limit):
+    # TODO: use a for loop to build a list of number * 1 through number * limit
+    answer = []
+    if not limit:
         return []
-    for n in range(start,0,-1):
-        countdown.append(n)
-    return countdown
+    for n in range(1,limit+1):
+        answer.append(n*number)
+    return answer
