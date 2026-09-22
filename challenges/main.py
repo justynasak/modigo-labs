@@ -1,8 +1,9 @@
-def multiplication_table(number, limit):
-    # TODO: use a for loop to build a list of number * 1 through number * limit
-    answer = []
-    if not limit:
-        return []
-    for n in range(1,limit+1):
-        answer.append(n*number)
-    return answer
+def rank_players(scores):
+    # TODO: assign standard competition ranks based on score, handling ties correctly,
+    # and return (name, rank) tuples in the original input order
+    distict_sorted = sorted([score for _,score in scores],reverse = True)
+    rank_map = {}
+    for i,s in enumerate(distict_sorted):
+        if s not in rank_map:
+            rank_map[s] = i + 1
+    return [(name,rank_map[score]) for name,score in scores]
