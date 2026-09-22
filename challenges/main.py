@@ -1,9 +1,8 @@
-def rank_players(scores):
-    # TODO: assign standard competition ranks based on score, handling ties correctly,
-    # and return (name, rank) tuples in the original input order
-    distict_sorted = sorted([score for _,score in scores],reverse = True)
-    rank_map = {}
-    for i,s in enumerate(distict_sorted):
-        if s not in rank_map:
-            rank_map[s] = i + 1
-    return [(name,rank_map[score]) for name,score in scores]
+def is_prime(number):
+    # TODO: return True if `number` is prime, False otherwise
+    if number < 2:
+        return False
+    for divisor in range(2,int(number ** 0.5)+1):
+        if number % divisor == 0:
+            return False
+    return True
