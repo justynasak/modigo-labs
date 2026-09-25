@@ -1,15 +1,7 @@
-def merge_intervals(intervals):
-    # TODO: merge overlapping or touching intervals into consolidated ranges,
-    # returned sorted by start value
-    if not intervals:
-        return []
-        
-    sorted_intervals = sorted(intervals,key = lambda x : x[0])
-    merged = [sorted_intervals[0]]
-    for current in sorted_intervals[1:]:
-        last = merged[-1]
-        if current[0]<= last[1]:
-            merged[-1] = (last[0],max(last[1],current[1]))
-        else:
-            merged.append(current)
-    return merged
+def find_phone_number(contacts, name):
+    # TODO: build a dict from `contacts` (list of (name, phone) tuples),
+    # then return the phone number for `name`, or "Not found"
+    caller = {}
+    for contact_name,phone_number in contacts:
+        caller[contact_name] = phone_number
+    return caller.get(name,"Not found")
