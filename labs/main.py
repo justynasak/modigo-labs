@@ -1,7 +1,13 @@
-def find_phone_number(contacts, name):
-    # TODO: build a dict from `contacts` (list of (name, phone) tuples),
-    # then return the phone number for `name`, or "Not found"
-    caller = {}
-    for contact_name,phone_number in contacts:
-        caller[contact_name] = phone_number
-    return caller.get(name,"Not found")
+def top_words(text, n):
+    # TODO: count word frequency (case-insensitive), then return the top `n`
+    # as (word, count) tuples sorted by count descending, ties broken alphabetically
+    if not text:
+        return []
+    words = text.lower().split()
+    count = {}
+    for word in words:
+        count[word] = count.get(word,0)+1
+
+    ranked = sorted(count.items(), key = lambda x: (-x[1],x[0]))
+
+    return ranked[:n]
